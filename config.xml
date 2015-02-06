@@ -10,14 +10,14 @@
 
         <preference name="phonegap-version" value="3.5.0" />
 
-        <name>Luke First PhoneGap config name</name>
+        <name>"Luke First PhoneGap config name"</name>
 
         <description>
-        Luke first phonegap config description 
+        "Luke first phonegap config description "
         </description>
 
         <author href="http://epimedia.com" email="info@epimedia.com">
-        Luke
+        "Luke"
         </author>
 
     </widget>

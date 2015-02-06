@@ -1,8 +1,16 @@
     <widget id="com.PGBuildAppLuke.tryingreallyhard" version="0.0.1"
 	
-	 android-versionCode="7"
+		 android-versionCode="7"
 	 >
-        <name>PG Build App Luke ConfigXML</name>
+
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.phonegap.example"
+    version     = "0.0.1" >
+	 
+
+    <name>PG Build App Luke ConfigXML</name>
         <description>
             First attempt description field xml
         </description>

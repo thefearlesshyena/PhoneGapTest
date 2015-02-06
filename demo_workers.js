@@ -2,6 +2,10 @@ var i = 0;
 
 var msInterval = 500;
 
+//notification plugin
+document.addEventListener('deviceready', function () {
+    // window.plugin.notification.local is now available
+}, false);
 
 function setWorkerInterval(val){
 

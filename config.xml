@@ -1,4 +1,7 @@
-    <widget id="PG Build App Luke" version="0.0.1">
+    <widget id="PG Build App Luke" version="0.0.1"
+	
+	 android-versionCode="7"
+	 >
         <name>HelloWorld</name>
         <description>
             First attempt description field xml
@@ -8,9 +11,7 @@
         </author>
         <content src="index.html" />
         <access origin="*" />
-    </widget>
+   
 
-	    <widget id="PG Build App Luke"
-      version="0.0.1"
-      android-versionCode="7"
-      ios-CFBundleVersion="3.3.3">
+	 
+       </widget>

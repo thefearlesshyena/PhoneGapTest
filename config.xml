@@ -1,0 +1,17 @@
+    <widget id="com.PGBuildAppLuke.tryingreallyhard" version="0.0.1"
+	
+	 android-versionCode="7"
+	 >
+        <name>PG Build App Luke</name>
+        <description>
+            First attempt description field xml
+        </description>
+        <author email="luke@epimedia.com" href="http://phonegap.com">
+            Apache Cordova Team
+        </author>
+        <content src="index.html" />
+        <access origin="*" />
+   
+
+	 
+       </widget>

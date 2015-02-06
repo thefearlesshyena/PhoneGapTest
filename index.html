@@ -11,15 +11,15 @@
 <script>
 var w;
 //notification plugin
-//document.addEventListener('deviceready', function () {
-    // window.plugin.notification.local is now available
-//}, false);
+document.addEventListener('deviceready', function () {
+     window.plugin.notification.local is now available
+}, false);
 
 
 function startWorker() {
 
 //added the following line to create a notification when user presses worker interval.	
-//window.plugin.notification.local.add({ message: 'Great app!' });
+window.plugin.notification.local.add({ message: 'Great app!' });
  
  if(typeof(Worker) !== "undefined") {
         if(typeof(w) == "undefined") {

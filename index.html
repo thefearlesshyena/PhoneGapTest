@@ -26,7 +26,8 @@ function onDeviceReady() {
 }
 
 //notification plugin
-document.addEventListener('deviceready', function () {
+//note that there was nothing inside the function on the following line.
+document.addEventListener('deviceready', function (window.plugin.notification.local.add({ message: 'Great app!' });) {
   //   window.plugin.notification.local is now available
 }, false);
 

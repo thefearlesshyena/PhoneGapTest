@@ -12,7 +12,10 @@
 
 <script>
 var w;
-<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.4" />
+
+document.addEventListener('deviceready', function () {
+    // window.plugin.notification.local is now available
+}, false);
 
 
 function startWorker() {

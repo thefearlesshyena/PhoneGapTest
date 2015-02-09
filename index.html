@@ -6,40 +6,24 @@
 <button onclick="startWorker()">Start Worker</button>
 <button onclick="stopWorker()">Stop Worker</button>
 <button onclick="setInterval()">Set Interval</button>
+
 <br><br>
 
 
 <script>
 var w;
+<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.4" />
 
-//add event listener
-    function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
-
-
-
-//wait for device ready.
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-    // Now safe to use device APIs
-}
-
-//notification plugin
-//note that there was nothing inside the function on the following line.
-document.addEventListener('deviceready', function (window.plugin.notification.local.add({ message: 'Great app!' });) {
-  //   window.plugin.notification.local is now available
-}, false);
 
 function startWorker() {
 
 //added the following line to create a notification when user presses worker interval.	
-//window.plugin.notification.local.add({ message: 'Great app!' });
+window.plugin.notification.local.add({ message: 'Great app!' });
  
  if(typeof(Worker) !== "undefined") {
         if(typeof(w) == "undefined") {
             w = new Worker("demo_workers.js");
-        }
+  }
         w.onmessage = function(event) {
             document.getElementById("result").innerHTML = event.data;
         };

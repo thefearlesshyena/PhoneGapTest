@@ -3,6 +3,7 @@
 
  <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/index.css" />
 </head> 
 
 <body>
@@ -18,7 +19,8 @@
     </form> 
 <button onclick="userStore()">Submit</button><br>
 <button onclick="userRetrieve()">Submit</button><br>
-	
+
+<p class="speech">I'm so nervous!</p>	
 	
 <br><br>
 <script src="lib/handlebars.js"></script>
@@ -29,6 +31,7 @@
 <script src="phonegap.js"></script>
 <script src="js/userData.js"></script>
 <script src="js/workerManager.js"></script>
+
 
 <script>
 var w;
@@ -51,8 +54,8 @@ if(typeof(Worker) !== "undefined") {
 		switch(e.data[0]){
 			case 'done':
 			w = undefined;
-			window.plugin.notification.local.add({ message: 'Great app!' });
-			app.showAlert("Worker is done", "Super Title");
+			window.plugin.notification.local.add({ message: "What's been keeping you busy?" });
+			//app.showAlert("Worker is done", "Super Title");
 			break;
 			
 			case 'working':
@@ -63,11 +66,7 @@ if(typeof(Worker) !== "undefined") {
 			console.log("unexpected case....");
 							};
 													});
-
 	
-		
-
-		
     } else {
         document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
     }

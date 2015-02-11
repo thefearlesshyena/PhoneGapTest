@@ -52,7 +52,7 @@ p.speechLeft
 	left: 42px;
 	width: 260px;
 	height: 100px;
-/*	overflow:hidden; */
+	overflow:hidden; 
 	text-align: center;
 	line-height: 100px;
 	background-color: #fff;
@@ -94,7 +94,7 @@ p.speechRight
 	left: 18px;
 	width: 260px;
 	height: 100px;
-/*	overflow:hidden; */
+	/*overflow:hidden; */
 	text-align: center;
 	line-height: 100px;
 	background-color: #fff;

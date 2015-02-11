@@ -28,24 +28,45 @@
 <script src="js/main.js"></script>
 <script src="phonegap.js"></script>
 <script src="js/userData.js"></script>
+<script src="js/workerManager.js"></script>
 
 <script>
 var w;
 
 
-
-
 function startWorker() {
    
-
  
- if(typeof(Worker) !== "undefined") {
+if(typeof(Worker) !== "undefined") {
         if(typeof(w) == "undefined") {
             w = new Worker("js/demo_workers.js");
   }
         w.onmessage = function(event) {
             document.getElementById("result").innerHTML = event.data;
-        };
+										};
+		w.postMessage(20);
+		
+		w.addEventListener('message', function(e) {
+		result = e.data;
+		switch(e.data[0]){
+			case 'done':
+			w = undefined;
+			app.showAlert("Worker is done", "Super Title");
+			break;
+			
+			case 'working':
+			console.log("Time remaining: "+e.data[1]);
+			break;
+			
+			default:
+			console.log("unexpected case....");
+							};
+													});
+
+	
+		
+
+		
     } else {
         document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
     }
@@ -54,14 +75,31 @@ function startWorker() {
 function stopWorker() {
 //var name = localStorage.getItem('name');
 //postMessage(name);
-	app.showAlert("I'm angry!", "Super Title");
+	app.showAlert("Worker Stopped", "Super Title");
    w.terminate();
     w = undefined;
 }
 
-function setInterval() {
-    w.setWorkerInterval(2000);
-}
+function timeElapsed(){
+	app.showAlert("Time Elapsed", "Super Title");
+	}
+
+
+	//added the following line to create a notification when user presses worker interval.	
+	//window.plugin.notification.local.add({ message: 'Great app!' });
+//app.showAlert("SettingInterval", "Super Title");
+
+	
+addEventListener('message', function(e) {
+var data =e.data;
+
+app.showAlert("Time Elapsed,message received", "Super Title");
+//analyzeWorker();
+										});
+
+
+
+
 </script>
 
 <input type="text" name="textbox1" id="textbox1" /> 
@@ -71,7 +109,7 @@ function setInterval() {
 
 <input type="text" name="textbox3" id="textbox3" readonly="true"/>
 <br />
-Your answer is: --
+
 
 </body>
 </html>

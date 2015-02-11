@@ -20,7 +20,8 @@
 <button onclick="userStore()">Submit</button><br>
 <button onclick="userRetrieve()">Submit</button><br>
 
-<p class="speech">I'm so nervous!</p>	
+<p id=1 class="speechLeft">I'm so nervous!</p>	
+<p id=2 class="speechRight">Just relax!</p>	
 	
 <br><br>
 <script src="lib/handlebars.js"></script>
@@ -36,6 +37,11 @@
 <script>
 var w;
 
+var h = document.getElementById('1').clientHeight;
+
+console.log("height is " + h);
+
+
 
 function startWorker() {
    
@@ -47,7 +53,7 @@ if(typeof(Worker) !== "undefined") {
         w.onmessage = function(event) {
             document.getElementById("result").innerHTML = event.data;
 										};
-		w.postMessage(20);
+		w.postMessage(15);
 		
 		w.addEventListener('message', function(e) {
 		result = e.data;

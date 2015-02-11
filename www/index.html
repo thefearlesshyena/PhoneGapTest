@@ -51,6 +51,7 @@ if(typeof(Worker) !== "undefined") {
 		switch(e.data[0]){
 			case 'done':
 			w = undefined;
+			window.plugin.notification.local.add({ message: 'Great app!' });
 			app.showAlert("Worker is done", "Super Title");
 			break;
 			
@@ -78,7 +79,7 @@ function stopWorker() {
 	//app.showAlert("Worker Stopped", "Super Title");
    w.terminate();
     w = undefined;
-	window.plugin.notification.local.add({ message: 'Great app!' });
+
 }
 
 function timeElapsed(){

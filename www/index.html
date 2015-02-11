@@ -75,7 +75,7 @@ if(typeof(Worker) !== "undefined") {
 function stopWorker() {
 //var name = localStorage.getItem('name');
 //postMessage(name);
-	app.showAlert("Worker Stopped", "Super Title");
+	//app.showAlert("Worker Stopped", "Super Title");
    w.terminate();
     w = undefined;
 	window.plugin.notification.local.add({ message: 'Great app!' });

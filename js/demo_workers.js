@@ -36,6 +36,7 @@ function setWorkerInterval(val){
 function timedCount() {
     i = i + 1;
     postMessage(i);
+	postMessage(fname);
     setTimeout("timedCount()",msInterval);
 	//added the following line to create a notification when user presses worker interval.	
 	//window.plugin.notification.local.add({ message: 'Great app!' });

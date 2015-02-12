@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+</head> 
+
+<body>
+
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+<button onclick="setInterval()">Set Interval</button><br>
+ 	Entry: <input type="text" name="userText" id="userText"><br>
+	Last name: <input type="text" name="lname"><br>
+	Nudge: <input type="number" name="freq"><br>
+<button onclick="userStore()">TestSubmit</button><br>
+<button onclick="userRetrieve()">TestRetrieve</button><br>
+
+<p id=1 class="speechLeft">I'm so nervous!</p>	
+<p id=2 class="speechRight">Just relax!</p>	
+
+<button onclick="addEntry()">AddEntry</button><br>
+<button onclick="retrieveEntries()">Display</button><br>
+<button onclick="clearEntries()">Clear</button><br>
+
+	
+<br><br>
+<script src="lib/handlebars.js"></script>
+<script src="lib/jquery-1.8.2.min.js"></script>
+<script src="js/storage/memory-store.js"></script>
+<script src="js/storage/ls-store.js"></script>
+<script src="js/main.js"></script>
+<script src="phonegap.js"></script>
+<script src="js/userData.js"></script>
+<script src="js/workerManager.js"></script>
+
+
+<script>
+var w;
+
+var h = document.getElementById('1').clientHeight;
+
+console.log("height is " + h);
+
+
+
+function startWorker() {
+   
+ 
+if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+            w = new Worker("js/demo_workers.js");
+  }
+        w.onmessage = function(event) {
+            document.getElementById("result").innerHTML = event.data;
+										};
+		w.postMessage(15);
+		
+		w.addEventListener('message', function(e) {
+		result = e.data;
+		switch(e.data[0]){
+			case 'done':
+			w = undefined;
+			window.plugin.notification.local.add({ message: "What's been keeping you busy?" });
+			//app.showAlert("Worker is done", "Super Title");
+			break;
+			
+			case 'working':
+			console.log("Time remaining: "+e.data[1]);
+			break;
+			
+			default:
+			console.log("unexpected case....");
+							};
+													});
+	
+    } else {
+        document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+    }
+}
+
+function stopWorker() {
+//var name = localStorage.getItem('name');
+//postMessage(name);
+	//app.showAlert("Worker Stopped", "Super Title");
+   w.terminate();
+    w = undefined;
+
+}
+
+function timeElapsed(){
+	app.showAlert("Time Elapsed", "Super Title");
+	}
+
+
+	//added the following line to create a notification when user presses worker interval.	
+	
+//app.showAlert("SettingInterval", "Super Title");
+
+	
+addEventListener('message', function(e) {
+var data =e.data;
+
+app.showAlert("Time Elapsed,message received", "Super Title");
+//analyzeWorker();
+										});
+
+
+
+
+</script>
+
+<input type="text" name="textbox1" id="textbox1" /> 
++ 
+<input type="text" name="textbox2" id="textbox2" />
+<input type="submit" name="button" id="button1" onclick="myfunction()" value="=" />
+
+<input type="text" name="textbox3" id="textbox3" readonly="true"/>
+<br />
+
+
+</body>
+</html>

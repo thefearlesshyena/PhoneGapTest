@@ -43,7 +43,7 @@ function retrieveEntries() {
 var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
 for(i=0; i<existingEntries.length; i++){
 var textbox3 = document.getElementById('textbox3');
-textbox3.value=(existingEntries[i]);
+textbox3.value=(existingEntries[i].text);
 };
 };
 

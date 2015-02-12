@@ -11,17 +11,20 @@
 <p>Count numbers: <output id="result"></output></p>
 <button onclick="startWorker()">Start Worker</button>
 <button onclick="stopWorker()">Stop Worker</button>
-<button onclick="setInterval()">Set Interval</button>
- <form action="demo_form.asp">
-	First name: <input type="text" name="fname"><br>
+<button onclick="setInterval()">Set Interval</button><br>
+ 	Entry: <input type="text" name="userText" id="userText"><br>
 	Last name: <input type="text" name="lname"><br>
 	Nudge: <input type="number" name="freq"><br>
-    </form> 
 <button onclick="userStore()">Submit</button><br>
 <button onclick="userRetrieve()">Submit</button><br>
 
 <p id=1 class="speechLeft">I'm so nervous!</p>	
 <p id=2 class="speechRight">Just relax!</p>	
+
+<button onclick="addEntry()">AddEntry</button><br>
+<button onclick="retrieveEntries()">Display</button><br>
+<button onclick="clearEntries()">Clear</button><br>
+
 	
 <br><br>
 <script src="lib/handlebars.js"></script>

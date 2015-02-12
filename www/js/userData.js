@@ -21,3 +21,32 @@ textbox3.value=answer;
 textbox3.value=foo;
  }
  
+ function addEntry() {
+    // Parse any JSON previously stored in allEntries
+    var date = Date();
+	var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+    if(existingEntries == null) existingEntries = ["",""];
+    //var entryDate = document.getElementById("entryDate").value;
+    var entryText = document.getElementById("userText").value;
+    var entry = {
+        "date": date,
+        "text": entryText
+    };
+    localStorage.setItem("entry", JSON.stringify(entry));
+    // Save allEntries back to local storage
+    existingEntries.push(entry);
+    localStorage.setItem("allEntries", JSON.stringify(existingEntries));
+	//display date as a test:
+	console.log(date);
+};
+
+function retrieveEntries() {
+var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+for(i=0; i<existingEntries.length; i++){
+console.log(existingEntries[i]);
+};
+};
+
+function clearEntries(){
+localStorage.removeItem("allEntries");
+};

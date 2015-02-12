@@ -37,13 +37,13 @@ textbox3.value=foo;
     existingEntries.push(entry);
     localStorage.setItem("allEntries", JSON.stringify(existingEntries));
 	//display date as a test:
-	console.log(date);
 };
 
 function retrieveEntries() {
 var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
 for(i=0; i<existingEntries.length; i++){
-console.log(existingEntries[i]);
+var textbox3 = document.getElementById('textbox3');
+textbox3.value=(existingEntries[i]);
 };
 };
 

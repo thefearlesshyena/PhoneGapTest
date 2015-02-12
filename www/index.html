@@ -9,6 +9,7 @@
 <body>
 
 <p>Count numbers: <output id="result"></output></p>
+<button onclick="createPs()">create fields</button>
 <button onclick="startWorker()">Start Worker</button>
 <button onclick="stopWorker()">Stop Worker</button>
 <button onclick="setInterval()">Set Interval</button><br>
@@ -18,8 +19,10 @@
 <button onclick="userStore()">TestSubmit</button><br>
 <button onclick="userRetrieve()">TestRetrieve</button><br>
 
+<div id="speech">
 <p id=1 class="speechLeft">I'm so nervous!</p>	
 <p id=2 class="speechRight">Just relax!</p>	
+</div>
 
 <button onclick="addEntry()">AddEntry</button><br>
 <button onclick="retrieveEntries()">Display</button><br>
@@ -40,10 +43,29 @@
 <script>
 var w;
 
-var h = document.getElementById('1').clientHeight;
+function createPs() {
+for(i=0;i<5;i++){
 
-console.log("height is " + h);
+    var para = document.createElement("P"); para.className='speechLeft'; para.id="auto"+i;
+//	para.setAttribute("id","P1");
+//	t.id='P1';
+    var t = document.createTextNode("This is a paragraph.");
 
+//    document.getElementById("P1").className="speechLeft";
+	document.getElementById("speech").appendChild(para);
+	};
+}
+
+
+//Var h is the height of a text box.
+//var h = document.getElementById('1').clientHeight;
+
+function create(){
+for(i=0;i<5;i++){
+document.createElement(elemental);
+console.log(i);
+};
+};
 
 
 function startWorker() {
